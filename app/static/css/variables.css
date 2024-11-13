@@ -1,0 +1,33 @@
+:root {
+    --back1: #0b0c0d;
+    --back2: #16181a;
+    --back3: #212326;
+    --back4: #2c2f33;
+    --back5: #373b40;
+    --back6: #42474d;
+    --back7: #4d5359;
+
+    --primary: #33ff99;
+    --dimPrimary: #22aa66;
+    --transPrimary: #33ff9966;
+
+    --secondary: #ffffff;
+    --dimSecondary: #cccccc;
+    --transSecondary: #ffffff66;
+
+    --warning: #FF3355;
+
+    --font1: #eee;
+    --font2: #ccc;
+    --font3: #aaa;
+
+    --white: #eee;
+    --black: #111;
+}
+
+@font-face {
+    font-family: 'KumbhSansVar';
+    src: url('../resources/fonts/Kumbh-Sans-Var.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-display: swap;
+}
