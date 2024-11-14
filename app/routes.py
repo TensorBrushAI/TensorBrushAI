@@ -1,7 +1,7 @@
 import os
 from flask import render_template, send_from_directory
 from app import app, socketio
-from .generate import start_generation # cancel_generation
+from .generate import start_generation, cancel_generation
 
 @app.route("/")
 def index():
@@ -31,4 +31,4 @@ def handle_start_generation(data):
 @socketio.on("cancel_generation")
 def handle_cancel_generation():
     print("Cancel generation request received.")
-    # cancel_generation()
+    cancel_generation()
