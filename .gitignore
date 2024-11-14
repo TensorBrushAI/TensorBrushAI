@@ -2,3 +2,5 @@
 /.venv
 /.vscode
 /structure.md
+/models/*
+/outputs/*

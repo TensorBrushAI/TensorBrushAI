@@ -4,5 +4,4 @@ from flask_socketio import SocketIO
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-from .modules.events import incoming_events
-incoming_events.socketio = socketio
+from app import routes

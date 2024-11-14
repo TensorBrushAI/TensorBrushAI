@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generation</title>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Generate an Image</h1>
+    <label for="prompt">Prompt:</label>
+    <input type="text" id="prompt" placeholder="Enter your prompt here" required>
+    <button onclick="startGeneration()">Generate Image</button>
+    <button onclick="cancelGeneration()">Cancel Generation</button>
+    <h2>Generated Image:</h2>
+    <img id="generatedImage" src="" alt="Your generated image will appear here" style="max-width: 100%; display: none;">
+    <script src="/static/client.js"></script>
+</body>
+</html>
