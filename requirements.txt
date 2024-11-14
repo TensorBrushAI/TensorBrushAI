@@ -30,7 +30,9 @@ setuptools==75.5.0
 simple-websocket==1.1.0
 sympy==1.13.1
 tokenizers==0.20.3
-torch==2.5.1
+torch==2.6.0.dev20241114
+torchaudio==2.5.0.dev20241114
+torchvision==0.20.0.dev20241114
 tqdm==4.67.0
 transformers==4.46.2
 typing_extensions==4.12.2

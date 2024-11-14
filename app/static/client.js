@@ -1,40 +1,33 @@
-// Connect to the SocketIO server
 const socket = io();
+socket.on("connect", () => {
+    console.log("Connected to the server.");
+});
+socket.on("disconnect", () => {
+    console.log("Disconnected from the server.");
+});
 
-// Function to start generation
-function startGeneration() {
-    const prompt = document.getElementById("prompt").value;
-    
+const generateButton = document.getElementById("generate-button");
+const cancelButton = document.getElementById("cancel-button");
+const positivePrompt = document.getElementById("positive-prompt");
+const outputImageContainer = document.getElementById("output-image-container");
+const outputImagePlaceholderText = document.getElementById("output-image-placeholder-text");
+
+generateButton.addEventListener("click", () => {
+    const prompt = document.getElementById("positive-prompt").value;
     if (!prompt) {
         alert("Please enter a prompt.");
         return;
     }
-
-    // Send start_generation event with data
+    outputImagePlaceholderText.innerText = "Generating image...";
     socket.emit("start_generation", { prompt });
-}
+});
 
-// Function to cancel generation
-function cancelGeneration() {
+cancelButton.addEventListener("click", () => {
     socket.emit("cancel_generation");
-}
+});
 
-// Listen for generation_completed event from the server
 socket.on("generation_completed", (data) => {
-    const filename = data.filename;
-    const imageUrl = `/outputs/${filename}`;
-
-    // Display the generated image
-    const generatedImage = document.getElementById("generatedImage");
-    generatedImage.src = imageUrl;
-    generatedImage.style.display = "block";
-});
-
-// Handle connection and disconnection events
-socket.on("connect", () => {
-    console.log("Connected to the server.");
-});
-
-socket.on("disconnect", () => {
-    console.log("Disconnected from the server.");
+    console.log("Image generated:", data.filename);
+    outputImagePlaceholderText.innerText = "";
+    outputImageContainer.innerHTML = `<img id="output-image" src="/outputs/${data.filename}" alt="Generated Image">`;
 });

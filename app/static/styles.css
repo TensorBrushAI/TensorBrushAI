@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'KumbhSansVar';
+    src: url('Kumbh-Sans-Var.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+    font-family: 'KumbhSansVar', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    scrollbar-width: 0;
+}
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 18px 22px;
+}
+
+.small-text {
+    font-size: 12px;
+}
+
+#generator {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 512px;
+    height: 632px;
+}
+
+#prompt-container {
+    position: relative;
+}
+
+#positive-prompt {
+    display: block;
+    width: 512px;
+    height: 104px;
+    padding: 12px;
+    border: 0;
+    outline: 0;
+    border-radius: 12px;
+    resize: none;
+}
+
+#button-container {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#generate-button {
+    z-index: 1;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    width: 112px;
+    height: 32px;
+    background-color: black;
+    border: 0;
+    outline: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.1s, color 0.2s;
+}
+
+#generate-button:hover {
+    color: #33ff99;
+}
+
+#generate-button:active {
+    background-color: #333;
+}
+
+#cancel-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    width: 42px;
+    height: 32px;
+    background-color: #666;
+    border: 0;
+    outline: 0;
+    border-radius: 6px;
+    margin-left: -10px;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+#cancel-button svg {
+    fill: white;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    transition: fill 0.2s;
+}
+
+#cancel-button:hover svg {
+    fill: #ff0066;
+}
+
+#cancel-button:active {
+    background-color: #333;
+}
+
+#output-image-container {
+    position: relative;
+    background-color: white;
+    width: 512px;
+    height: 512px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#output-image-placeholder-text {
+    font-size: 22px;
+    color: #999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#output-image {
+    width: 100%;
+}

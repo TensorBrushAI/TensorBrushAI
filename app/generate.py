@@ -2,7 +2,6 @@ import os
 import random
 import torch
 from diffusers import StableDiffusionXLPipeline, EulerAncestralDiscreteScheduler
-from .device import device, precision
 from app import socketio
 
 # INITIALIZE PIPELINE
@@ -10,7 +9,7 @@ pipeline = None
 def load_pipeline():
     global pipeline
     pipeline = None
-    pipeline = StableDiffusionXLPipeline.from_single_file("models/ReMixxxPonyXL-V1.0.safetensors", torch_dtype=precision).to(device)
+    pipeline = StableDiffusionXLPipeline.from_single_file("models/ReMixxxPonyXL-V1.0.safetensors", use_safetensors=True, safety_checker=None, variant="fp16", torch_dtype=torch.float16).to("mps")
     pipeline.scheduler = EulerAncestralDiscreteScheduler.from_config(pipeline.scheduler.config)
     return pipeline
 
@@ -19,7 +18,6 @@ cancel_flag = False
 def cancel_generation():
     global cancel_flag
     cancel_flag = True
-
 def interrupt_callback(pipeline, i, t, callback_kwargs):
     if cancel_flag:
         pipeline._interrupt = True
@@ -35,10 +33,10 @@ def start_generation(data):
     # Collect data passed to start_generation from client emit.
     prompt = data.get("prompt", "Masterpiece, Best Quality, Incredible, Beautiful, Wonderful, Amazing")
     negative_prompt = data.get("negative_prompt", "")
-    iterations = data.get("iterations", 10)
-    guidance = data.get("guidance", 7)
-    width = data.get("width", 80)
-    height = data.get("height", 80)
+    iterations = int(data.get("iterations", 25))
+    guidance = float(data.get("guidance", 5))
+    width = int(data.get("width", 768))
+    height = int(data.get("height", 768))
     seed = data.get("seed", None)
 
     # Generate a random seed if seed is None.
@@ -74,3 +72,4 @@ def start_generation(data):
     output.images[0].save(filepath)
     print(f"Image saved to outputs as {filename}.")
     socketio.emit("generation_completed", {"filename": filename})
+

@@ -1,14 +1,15 @@
 import torch
 
+# Device and Precision Setup
 if torch.cuda.is_available():
-    device = "cuda"
+    device = torch.device("cuda")
     precision = torch.float16
     print("Device: CUDA\nPrecision: FP16")
 elif torch.backends.mps.is_available():
-    device = "mps"
-    precision = torch.float32
-    print("Device: MPS\nPrecision: FP32")
+    device = torch.device("mps")
+    precision = torch.float16
+    print("Device: MPS\nPrecision: FP16")
 else:
-    device = "cpu"
+    device = torch.device("cpu")
     precision = torch.float32
     print("Device: CPU\nPrecision: FP32")
