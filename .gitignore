@@ -4,3 +4,4 @@
 /structure.md
 /models/*
 /outputs/*
+**/__pycache__/*

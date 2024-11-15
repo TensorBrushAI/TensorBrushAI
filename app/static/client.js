@@ -8,6 +8,7 @@ socket.on("disconnect", () => {
 
 const generateButton = document.getElementById("generate-button");
 const cancelButton = document.getElementById("cancel-button");
+const progressBar = document.getElementById("progress-bar");
 const positivePrompt = document.getElementById("positive-prompt");
 const outputImageContainer = document.getElementById("output-image-container");
 const outputImagePlaceholderText = document.getElementById("output-image-placeholder-text");
@@ -24,6 +25,11 @@ generateButton.addEventListener("click", () => {
 
 cancelButton.addEventListener("click", () => {
     socket.emit("cancel_generation");
+});
+
+socket.on("progress_update", (data) => {
+    const percentage = data.percentage;
+    progressBar.style.width = `${percentage}%`;
 });
 
 socket.on("generation_completed", (data) => {

@@ -27,8 +27,7 @@
 
 body {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
     background-color: black;
@@ -36,25 +35,45 @@ body {
     padding: 0;
 }
 
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    height: 40px;
+    width: calc(100vw - 20px);
+    margin: 10px 10px 0px 10px;
+}
+
+#header-logo {
+    height: 40px;
+}
+
 h1 {
     font-size: 20px;
     color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 18px 22px;
 }
 
 .small-text {
     font-size: 12px;
+    color: #33ff99;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 50px);
+    width: 100%;
 }
 
 #generator {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    width: 512px;
-    height: 632px;
+    gap: 5px;
+    width: 520px;
+    max-width: calc(100vw - 20px);
+    min-width: 320px;
 }
 
 #prompt-container {
@@ -63,19 +82,19 @@ h1 {
 
 #positive-prompt {
     display: block;
-    width: 512px;
-    height: 104px;
-    padding: 12px;
+    width: 100%;
+    height: 110px;
+    padding: 15px;
     border: 0;
     outline: 0;
-    border-radius: 12px;
+    border-radius: 15px;
     resize: none;
 }
 
 #button-container {
     position: absolute;
-    bottom: 8px;
-    right: 8px;
+    bottom: 1px;
+    right: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,12 +105,12 @@ h1 {
     font-size: 12px;
     font-weight: 600;
     color: white;
-    width: 112px;
-    height: 32px;
+    width: 115px;
+    height: 30px;
     background-color: black;
     border: 0;
     outline: 0;
-    border-radius: 6px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.1s, color 0.2s;
 }
@@ -107,26 +126,26 @@ h1 {
 #cancel-button {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     font-size: 12px;
     font-weight: 600;
     color: white;
-    width: 42px;
-    height: 32px;
+    width: 60px;
+    height: 30px;
     background-color: #666;
     border: 0;
     outline: 0;
-    border-radius: 6px;
-    margin-left: -10px;
+    border-radius: 15px;
+    margin-left: -30px;
     cursor: pointer;
     transition: background-color 0.1s;
 }
 
 #cancel-button svg {
-    fill: white;
+    fill: #ccc;
     width: 16px;
     height: 16px;
-    margin-left: 8px;
+    margin-right: 8px;
     transition: fill 0.2s;
 }
 
@@ -138,12 +157,30 @@ h1 {
     background-color: #333;
 }
 
+#progress-bar-container {
+    width: calc(100% - 30px);
+    height: 5px;
+    background-color: #666;
+    border-radius: 10px;
+    margin: 0px 15px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #33ff99;
+    transition: width 1s;
+}
+
 #output-image-container {
     position: relative;
     background-color: white;
-    width: 512px;
-    height: 512px;
-    border-radius: 12px;
+    width: 100%;
+    height: 520px;
+    max-height: calc(100vw - 20px);
+    min-height: 320px;
+    border-radius: 15px;
     overflow: hidden;
 }
 
