@@ -1,5 +1,6 @@
 import builtins
 
+# CHANGE COLOR OF PRINTS
 original_print = builtins.print
 def color_text(text, rgb=(51, 255, 153)):
     r, g, b = rgb

@@ -16,12 +16,28 @@
             <div id="prompt-container">
                 <textarea id="positive-prompt" name="prompt" placeholder="Positive Prompt" required></textarea>
                 <div id="button-container">
+                    <div id="secondary-button-container">
+                        <button id="cancel-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg></button>
+                        <button id="show-queue-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L192 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"/></svg></button>
+                    </div>
                     <button  id="generate-button">GENERATE</button>
-                    <button id="cancel-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg></button>
                 </div>
             </div>
             <div id="progress-bar-container"><div id="progress-bar"></div></div>
-            <div id="output-image-container"><p id="output-image-placeholder-text">Output Image</p></div>
+            <div id="output-image-container">
+                <p id="output-image-placeholder-text">Output Image</p>
+                <div id="queue-container">
+                    <div class="queue-header">
+                        <div class="queue-header-left">
+                            <p class="queue-header-seed">SEED</p>
+                            <p class="queue-header-prompt">PROMPT</p>
+                        </div>
+                        <button class="cancel-all-queue-items">CANCEL ALL</button>
+                    </div>
+                    <div id="queue-list">
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <script src="{{ url_for('static', filename='client.js') }}"></script>
