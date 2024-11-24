@@ -1,6 +1,5 @@
 import os
 
-# SAVE OUTPUT IMAGE
 def save_image(output, seed):
     os.makedirs("outputs", exist_ok=True)
     for i in range(1, 1000):

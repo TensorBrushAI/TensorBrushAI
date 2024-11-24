@@ -1,6 +1,5 @@
 import torch
 
-# DEVICE AND PRECISION
 if torch.cuda.is_available():
     device = torch.device("cuda")
     precision = torch.float16

@@ -1,6 +1,5 @@
 from tqdm import tqdm
 
-# PROGRESS PERCENTAGE
 class InterceptingProgressBar(tqdm):
     def __init__(self, *args, **kwargs):
         self.socketio = kwargs.pop("socketio", None)

@@ -38,10 +38,10 @@ def on_cancel_generation():
 def on_cancel_queue_item(data):
     index = data.get("index")
     if index is not None:
-        print(f"Canceling queue item at index {index}")
+        print("Canceling queued request...")
         cancel_queue_item(index)
 
 @socketio.on("cancel_all_queue_items")
 def on_cancel_all_queue_items():
-    print("Canceling all queue items")
+    print("Canceling all queued requests.")
     cancel_all_tasks()
